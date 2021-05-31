@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 
 app.post('/sendMessage',async function (req,res){
 
-let {name,contact,message} = req.body
+let {name,lastName,message} = req.body
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
@@ -43,7 +43,7 @@ let {name,contact,message} = req.body
         //text: "Сообщения от hr-а", // plain text body
         html: `<b>Привет,новое сообщение с вашего портфолио</b>
         имя:<div>${name}</div>
-        номер:<div>${contact}</div>
+        фамилия:<div>${lastName}</div>
         сообщение:<div>${message}</div>`, // html body
     });
 
